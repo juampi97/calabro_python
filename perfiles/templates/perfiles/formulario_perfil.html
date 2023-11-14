@@ -21,7 +21,7 @@
         <h3 class="mb-4">Editar datos:</h3>
         <form method="post">
           {% csrf_token %} {{ form.as_p }}
-          <input type="submit" value="Guardar" />
+          <input class="btn btn-warning" type="submit" value="Guardar" />
         </form>
       </div>
     </div>
