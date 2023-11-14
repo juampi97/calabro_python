@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% load static %} {% block contenido %}
+<!-- Main-->
+<main class="bg-dark py-5" style="min-height: 50vh !important">
+  <div class="container px-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-6">
+        <div class="text-center my-5">
+          <h1 class="display-5 fw-bolder text-white pt-5 mb-2">
+            Acerca de mi
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<section class="bg-ligth py-5" style="min-height: 50vh !important">
+  <div class="container d-flex flex-row px-5">
+    <div class="col-4 about_main_imgContainer">
+      <img class="" src="{% static 'assets/foto_perfil.png' %}" alt="Foto personal" style="width: 100% !important;">
+    </div class="col-7">
+    <div class="mx-5 mt-5">
+      <p>
+        ¡Hola! Soy Juan Pablo Calabró, un apasionado desarrollador RPA con un enfoque en la automatización de procesos. Actualmente, estoy cursando la carrera de Ingeniería Electrónica para expandir mis conocimientos y habilidades.
+      </p>
+      <p>Mi viaje en el mundo del desarrollo incluye estudios en desarrollo web, donde he adquirido experiencia en tecnologías como JavaScript y React. Actualmente, estoy inmerso en el aprendizaje de Python, ampliando así mi conjunto de habilidades y preparándome para enfrentar nuevos desafíos.</p>
+      <p>Nací y resido en Argentina, lo que me ha brindado una perspectiva única y multicultural en mi vida y carrera profesional. La diversidad y riqueza cultural de mi entorno han influido en mi enfoque hacia el desarrollo, fomentando mi creatividad y adaptabilidad.</p>
+      <p>Siempre estoy buscando nuevas oportunidades para aprender y crecer en el mundo del desarrollo de software. ¡Conéctate conmigo y exploremos juntos las posibilidades emocionantes que la tecnología tiene para ofrecer!</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
