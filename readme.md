@@ -46,3 +46,6 @@ python manage.py runserver
 | :----------: | :----------: |
 |     user     |  Coderhouse  |
 |    martin    |  Coderhouse  |
+
+## Test
+Los casos de prueba realizados se en encuentran en el archivo "Casos de prueba.xlsx" subido en este repositorio.
