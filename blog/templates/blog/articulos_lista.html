@@ -17,7 +17,30 @@
   <div class="container text-center p-5">
     <h2>No hay articulos.</h2>
   </div>
-  {% else %} {% endif %}
+  {% else %} {% for articulo in object_list %}
+  <!-- Testimonial 1-->
+  <div class="card mb-4">
+    <div class="card-body p-4">
+      <div class="d-flex">
+        <div class="flex-shrink-0">
+          <i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
+        </div>
+        <div class="ms-4">
+          <p class="mb-1">{{articulo.cuerpo}}</p>
+          <div class="small text-muted">
+            - {{articulo.autor}}, {{articulo.fecha}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %} {% endif %}
+  {% if user.is_authenticated %}
+  <div class="row-8 gx-5 d-flex flex-grap justify-content-center">
+    <button class="btn btn-primary">
+      <a class="navbar-brand" href="{% url 'create-post' %}">Agregar post</a>
+    </button>
+  </div>
+  {% endif %}
 </section>
 
 {% endblock %}

@@ -8,10 +8,9 @@ from django.db.models import Q
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Articulo
-# from blog.forms import ArticuloForm, ComentarioForm
+from blog.forms import ArticuloPostForm
 
 # Create your views here.
-
 class PostListView(ListView):
     model = Articulo
     template_name = 'blog/articulos_lista.html'
@@ -21,10 +20,19 @@ class PostListView(ListView):
         context['count'] = self.get_queryset().count()
         return context
 
-# class PostCreateView(CreateView):
-#     model = Articulo
-#     fields = ('titulo', 'subtitulo', 'categoria', 'autor', 'cuerpo')
-#     success_url = reverse_lazy('blog')
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Articulo
+    form_class = ArticuloPostForm
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Articulo
+    form_class = ArticuloPostForm
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('blog')
 
 # class PostUpdateView(UpdateView):
 #     model = Articulo

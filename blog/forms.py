@@ -1,13 +1,15 @@
 from django import forms
 
-class ArticuloForm(forms.Form):
-    titulo = forms.CharField(max_length=40) 
-    subtitulo = forms.CharField(max_length=40) 
-    categoria = forms.CharField(max_length=40) 
-    autor = forms.CharField(max_length=40)
-    cuerpo = forms.CharField(max_length=255)
+from blog.models import Articulo
 
+class ArticuloPostForm(forms.ModelForm):
+    class Meta:
+        model = Articulo
+        fields = ['titulo', 'subtitulo', 'categoria', 'cuerpo']
 
-class ComentarioForm(forms.Form):
-    autor = forms.CharField(max_length=40)
-    cuerpo = forms.CharField(max_length=255)
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class':'form-control'}),
+            'subtitulo': forms.TextInput(attrs={'class':'form-control'}),
+            'categoria': forms.Select(attrs={'class':'form-control'}),
+            'cuerpo': forms.Textarea(attrs={'class':'form-control'})
+        }

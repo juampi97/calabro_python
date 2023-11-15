@@ -1,32 +1,36 @@
 {% extends "base.html" %} {% load static %} {% block contenido %}
 
-<!-- Main-->
 <main class="bg-dark py-5" style="min-height: 50vh !important">
   <div class="container px-5">
     <div class="row gx-5 justify-content-center">
-      <div class="col-lg-10">
+      <div class="col-lg-6">
         <div class="text-center my-5">
-          <h1 class="display-5 fw-bolder text-white pt-5 mb-2">
-            Editar datos
-          </h1>
+          <h1 class="display-5 fw-bolder text-white pt-3 mb-2">Crear post</h1>
         </div>
       </div>
     </div>
   </div>
 </main>
+<!-- Form -->
 <section class="bg-ligth py-5" style="min-height: 50vh !important">
+  {% comment %} Form 1 {% endcomment %}
   <div class="container px-5 my-5 px-5">
     <div class="row gx-5 justify-content-center">
       <div class="col-lg-6">
         <form method="post">
           {% csrf_token %} {{ form.as_p }}
-          <input class="btn btn-warning ms-5 me-1" type="submit" value="Guardar" />
-          <a class="text-center btn btn-warning ms-1" href="{% url 'perfil' %}"
-          >Volver</a
-        >
+          <input
+            class="btn btn-primary ms-5 me-1"
+            type="submit"
+            value="Guardar"
+          />
+          <a class="text-center btn btn-primary ms-1" href="{% url 'blog' %}"
+            >Volver</a
+          >
         </form>
       </div>
     </div>
   </div>
 </section>
+
 {% endblock %}
