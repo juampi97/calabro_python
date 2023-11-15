@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% load static %} {% block contenido %}
+<!-- Main-->
+<main class="bg-dark py-5" style="min-height: 50vh !important">
+  <div class="container px-5">
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-6">
+        <div class="text-center my-5">
+          <h1 class="display-5 fw-bolder text-white pt-3 mb-2">
+            {{object.titulo}}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section
+  class="container justify-content-center bg-ligth py-5"
+  style="min-height: 50vh !important"
+>
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <h5>Titulo</h5>
+      <p>{{object.titulo}}</p>
+      <h5>Subtitulo</h5>
+      <p>{{object.subtitulo}}</p>
+      <h5>Categoria</h5>
+      <p>{{object.categoria}}</p>
+      <h5>Autor</h5>
+      <p>{{object.autor}}</p>
+      <h5>Fecha</h5>
+      <p>{{object.fecha}}</p>
+      <h5>Contenido</h5>
+      <p>{{object.cuerpo}}</p>
+      </div>
+      <div class="row justify-content-center">
+        <button class="col-1 mb-4 btn btn-primary">
+          <a class="navbar-brand" href="{% url 'blog' %}">Volver</a>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

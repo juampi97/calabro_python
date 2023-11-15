@@ -34,6 +34,10 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     success_url = reverse_lazy('blog')
 
+class PostDetailView(DetailView):
+   model = Articulo
+   success_url = reverse_lazy('blog')
+
 # class PostUpdateView(UpdateView):
 #     model = Articulo
 #     fields = ('titulo', 'subtitulo', 'categoria', 'autor', 'cuerpo')
