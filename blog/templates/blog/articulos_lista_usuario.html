@@ -16,13 +16,13 @@
   class="container justify-content-center bg-ligth py-5"
   style="min-height: 50vh !important"
 >
-  {% if object_list.count == 0 %}
+  {% if cantidad == 0 %}
   <div class="container text-center p-5">
     <h2>No hay articulos.</h2>
   </div>
   {% else %}
   <div class="container">
-    {% for articulo in object_list %}
+    {% for articulo in articulos %}
     <!-- Testimonial 1-->
     <div class="row my-2 justify-content-center">
       <div class="col-5 card mb-4">
@@ -41,9 +41,19 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <button class="col-2 mb-4 btn btn-primary">
+          <button class="col-2 mb-4 ms-1 btn btn-primary me-1">
             <a class="navbar-brand" href="{% url 'detail-post' articulo.id %}"
               >Ver mas</a
+            >
+          </button>
+          <button class="col-2 mb-4 ms-1 me-1 btn btn-warning">
+            <a class="navbar-brand" href="{% url 'edit-post' articulo.id %}"
+              >Editar</a
+            >
+          </button>
+          <button class="col-2 mb-4 ms-1 btn btn-danger">
+            <a class="navbar-brand" href="{% url 'delete-post' articulo.id %}"
+              >Borrar</a
             >
           </button>
         </div>

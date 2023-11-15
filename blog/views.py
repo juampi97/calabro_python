@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 from blog.models import Articulo
 from blog.forms import ArticuloPostForm
@@ -38,10 +39,25 @@ class PostDetailView(DetailView):
    model = Articulo
    success_url = reverse_lazy('blog')
 
-# class PostUpdateView(UpdateView):
-#     model = Articulo
-#     fields = ('titulo', 'subtitulo', 'categoria', 'autor', 'cuerpo')
-#     success_url = reverse_lazy('blog')
-# class PostDeleteView(DeleteView):
-#     model = Articulo
-#     success_url = reverse_lazy('blog')
+@login_required
+def PostFilterByAutor(request):
+    articulos = Articulo.objects.filter(autor=request.user)
+    contexto = {
+            "articulos": articulos,
+            "cantidad": articulos.count()
+    }
+    http_response = render(
+        request=request,
+        template_name='blog/articulos_lista_usuario.html',
+        context=contexto,
+    )
+    return http_response
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+     model = Articulo
+     fields = ('titulo', 'subtitulo', 'categoria', 'cuerpo')
+     success_url = reverse_lazy('mis-posts')
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
+     model = Articulo
+     success_url = reverse_lazy('mis-posts')
