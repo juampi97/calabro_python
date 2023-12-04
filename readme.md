@@ -44,8 +44,12 @@ python manage.py runserver
 >
 |   Usuario    |   Contrseña  |
 | :----------: | :----------: |
+
 |     user     |  Coderhouse  |
 |    martin    |  Coderhouse  |
 
 ## Test
 Los casos de prueba realizados se en encuentran en el archivo "Casos de prueba.xlsx" subido en este repositorio.
+
+## Video funcionamiento sitio
+https://www.loom.com/share/1a05fa37305c4a8eb01ea076e23aa702?sid=6b6ebd4c-58f0-4870-991f-20dc275147a6
